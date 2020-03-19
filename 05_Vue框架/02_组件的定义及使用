@@ -1,0 +1,70 @@
+## 组件的定义及使用
+
+### vue 文件的组成（HelloWorld.vue）
+
+1. 模板页面
+
+   ```vue
+   <template>
+     <div class="hello">
+       <h1>{{ msg }}</h1>
+       <label><input type="text" v-model="msg"></label>
+     </div>
+   </template>
+   ```
+
+2. js 模块对象
+
+   ```vue
+   <script>
+   export default {
+     name: 'HelloWorld',
+     // 返回数据对象
+     data () {
+       return {
+         msg: '我们一起学习 Vue！'
+       }
+     }
+   }
+   </script>
+   ```
+
+3. 样式
+
+   ```vue
+   <!-- Add "scoped" attribute to limit CSS to this component only -->
+   <style scoped>
+       h1, h2 {
+         font-weight: normal;
+       }
+   </style>
+   ```
+
+   
+
+
+
+### 基本使用
+
+1. 引入组件（在 App.vue中）
+
+   ```vue
+   import HelloWorld from './components/HelloWorld'
+   ```
+
+2. 映射成标签
+
+   ```vue
+   components: {
+       Template
+   }
+   ```
+
+3. 使用组件标签
+
+   ```vue
+   <Template />
+   ```
+
+   
+
