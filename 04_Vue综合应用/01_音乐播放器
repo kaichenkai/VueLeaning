@@ -1,0 +1,83 @@
+## 音乐播放器
+
+### 功能
+
+1. 歌曲搜索
+   1. 按下回车：@keyup.enter
+   2. 查询数据：axios    v-model
+   3. 渲染数据：v-for    that
+2. 播放
+   1. 点击播放：@click
+   2. 歌曲地址获取：axios    
+   3. 歌曲地址设置：v-bind
+3. 封面
+   1. 点击播放：@click  增加逻辑
+   2. 歌曲封面获取：axios
+   3. 歌曲封面设置：v-bind
+4. 评论
+   1. 点击播放：@click  增加逻辑
+   2. 歌曲评论获取：axios
+   3. 歌曲评论渲染：v-bind
+5. 播放动画
+   1. 监听音乐播放：@play
+   2. 监听音乐暂停：@pause
+   3. 操作类名：v-bind
+6. 播放mv
+   1. mv图标显示：v-if
+   2. mv地址获取：axios
+   3. 遮罩层：@click    v-show
+   4. mv地址设置：v-bind
+
+
+
+
+
+### API接口信息
+
+#### 歌曲搜索
+
+- 请求地址：https://autumnfish.cn/search
+
+- 请求方式：get
+
+- 请求参数：keywords （查询关键字）
+
+- 响应内容：歌曲搜索的结果
+
+
+#### 歌曲 url 获取
+
+- 请求地址：https://autumnfish.cn/song/url
+
+- 请求方式：get
+
+- 请求参数：id （歌曲id）
+- 响应内容：歌曲的 url 地址
+
+#### 歌曲详情获取（封面）
+
+- 请求地址：https://autumnfish.cn/song/detail
+- 请求方式：get
+- 请求参数：id （歌曲id）
+- 响应内容：歌曲详情，包含封面
+
+#### 歌曲评论获取
+
+- 请求地址：https://autumnfish.cn/comment/hot?type=0
+- 请求方式：get
+- 请求参数：id （歌曲id）
+- 响应内容：歌曲的热门评论
+
+#### 歌曲mv地址获取
+
+- 请求地址：https://autumnfish.cn/mv/url
+- 请求方式：get
+- 请求参数：id （mvid，为0说明没有）
+- 响应内容：mv 的url地址
+
+
+
+
+
+
+
