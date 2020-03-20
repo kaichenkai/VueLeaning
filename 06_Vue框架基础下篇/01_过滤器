@@ -1,0 +1,77 @@
+## 过滤器
+
+### 概念
+
+1. 对要显示的数据进行特定格式化后再显示（日期，金钱等）
+2. 并没有改变原本的数据，可是产生新的对应的数据
+
+
+
+### 定义过滤器
+
+1. 全局（定义在 main.js 下）
+
+   ```vue
+   // 全局过滤器
+   Vue.filter('gMoneyFormat', (value) => {
+     return '￥' + Number(value).toFixed(2)
+   })
+   ```
+
+2. 局部（在当前组件下）
+
+   ```vue
+   // 局部过滤器
+   filters: {
+     moneyFormat (value) {
+       return '$' + Number(value).toFixed(2)
+     }
+   }
+   ```
+
+
+
+### 使用过滤器
+
+```vue
+{{ money1 | moneyFormat }}
+```
+
+
+
+### 组件 demo
+
+```vue
+<template>
+    <div>
+      <h3>过滤器</h3>
+      <p>{{ money1 | moneyFormat}}</p>
+      <p>{{ money2 | moneyFormat}}</p>
+      <p>{{ money1 | gMoneyFormat}}</p>
+      <p>{{ money2 | gMoneyFormat}}</p>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'Filters',
+  data () {
+    return {money1: 23455, money2: '223.4556'}
+  },
+  // 定义局部过滤器
+  filters: {
+    moneyFormat (value) {
+      return '$' + Number(value).toFixed(2)
+    }
+  }
+}
+</script>
+
+<style scoped>
+</style>
+```
+
+
+
+
+
