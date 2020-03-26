@@ -1,0 +1,50 @@
+## 基本配置
+
+### 安装
+
+```vue
+npm install vue-router -S
+```
+
+
+
+### 路由配置
+
+src/router.js
+
+```vue
+import Vue from 'vue'
+import Router from 'vue-router'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+
+  ]
+})
+```
+
+
+
+### 注册路由
+
+src/main.js
+
+```vue
+import Vue from 'vue'
+import App from './App'
+import router from './router.js'
+import './plugins/element.js'
+
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router, // 配置路由参数
+  components: { App },
+  template: '<App/>'
+})
+```
+

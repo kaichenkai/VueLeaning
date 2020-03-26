@@ -1,0 +1,32 @@
+## Element UI
+
+### 介绍
+
+1. 饿了么开源的基于 vue 的 PC端 UI 组件库
+2. 官网：https://element.eleme.cn/#/zh-CN
+
+
+
+### 安装
+
+```cmd
+# npm 安装
+npm i element-ui -S
+```
+
+
+
+### 项目中集成 element UI
+
+在项目的根目录下执行：
+
+```vue
+vue add element
+```
+
+
+
+### 使用
+
+1. 快速上手：https://element.eleme.cn/#/zh-CN/component/installation
+
