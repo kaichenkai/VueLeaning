@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prevent</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <h3>@click.prevent</h3>
+        <a href="http://www.baidu.com" @click="baidu">百度一下</a>
+        <p></p>
+        <a href="http://www.baidu.com" @click.prevent="baidu">百度一下, prevent阻止</a>
+    </div>
+
+<script>
+     let app = new Vue({
+        el:"#app",
+        data(){
+            return{
+                message1: 'hello world',
+                message2: 'HELLO WORLD'
+            }
+        },
+        methods: {
+            baidu() {
+                alert('百度一下')
+            }
+        }
+    })
+</script>
+
+<style scoped>
+</style>
+
+</body>
+</html>

@@ -50,6 +50,12 @@ doSomething: function(p1) {
 <input type="text" @keyup.enter="sayHi">
 ```
 
+只触发一次回调
+
+```html
+<input type="button" @click.once="fn" value="点我, 只触发一次">
+```
+
 
 
 ### demo

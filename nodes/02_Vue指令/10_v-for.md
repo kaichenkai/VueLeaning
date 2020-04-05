@@ -16,6 +16,18 @@
 
 
 
+### 注意
+
+vue 建议我们给每个循环遍历的标签, 加上 key 属性, 并要求 key 属性的值是唯一的
+
+```vue
+v-for="(student, index) in students" :key="index"
+```
+
+这样的做的目的: vue 渲染页面时, 根据 key 的标识找到每个元素, 效率会更高 
+
+
+
 ### demo
 
 ```html

@@ -1,12 +1,34 @@
 ## v-for 数据渲染
 
+### 使用
+
+1. 遍历数组
+
+   ```vue
+   value in array
+   // 或
+   (value, index) in array
+   ```
+
+2. 遍历对象
+
+   ```vue
+   (value, key) in object
+   // 或
+   (value, key, index) in object
+   ```
+
+3. vue 建议我们给每个循环遍历的标签, 加上 key 属性, 并要求 key 属性的值是唯一的
+
+   ```vue
+   v-for="(student, index) in students" :key="index"
+   ```
+
+   这样的做的目的: vue 渲染页面时, 根据 key 的标识找到每个元素, 效率会更高 
 
 
 
-
-
-
-组件demo
+### 组件demo
 
 ```vue
 <template>

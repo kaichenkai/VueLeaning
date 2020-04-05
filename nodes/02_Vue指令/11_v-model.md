@@ -12,6 +12,16 @@
 
 
 
+### 原理
+
+输入框绑定 data 中的 msg, 当输入框中的值发生变化时, msg 随之发生变化
+
+所以 v-model 是一种语法糖 (简化了 DOM 操作)
+
+```html
+<input :value="msg" @input="msg=$event.target.value">
+```
+
 
 
 ### demo

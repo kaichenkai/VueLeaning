@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@click.once</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <h3>@click.once</h3>
+        <input type="button" @click.once="fn" value="点我, 只触发一次">
+    </div>
+
+<script>
+     let app = new Vue({
+        el:"#app",
+        methods: {
+            fn() {
+                alert('点我了')
+            }
+        }
+    })
+</script>
+
+<style scoped>
+</style>
+
+</body>
+</html>

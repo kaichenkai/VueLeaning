@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>v-model</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <input type="button" value="选中" @click="isSelect = !isSelect">
+    {{isSelect}}
+    <input type="checkbox" value="666" v-model="isSelect">这是一个复选框
+    <br>
+
+    {{checkList}}
+    <input type="checkbox" value="111" v-model="checkList">复选框1
+    <input type="checkbox" value="222" v-model="checkList">复选框2
+    <input type="checkbox" value="333" v-model="checkList">复选框3
+    <input type="checkbox" value="444" v-model="checkList">复选框4
+    <input type="checkbox" value="555" v-model="checkList">复选框5
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            isSelect: "true",
+            checkList: []
+        }
+    })
+</script>
+</body>
+</html>
