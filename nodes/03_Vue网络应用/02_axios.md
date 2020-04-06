@@ -10,6 +10,11 @@
    <!-- axios 开发库 -->
    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    ```
+   项目中安装 axios
+
+   ```cmd
+   npm install axios
+   ```
 
 2. 使用 get 或 post 方法即可发送对应的请求
 
@@ -38,6 +43,8 @@
    ```
 
 6. 网络应用和本地应用最大的区别就是改变了数据来源
+
+7. 说明: axios 支持 Promise, 不支持 JSONP 请求, 如果遇到 JSONP 请求, 可以使用 JSONP 插件实现
 
 
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <h3>过滤器</h3>
+    <p>{{ money1 | moneyFormat}}</p>
+    <p>{{ money2 | moneyFormat}}</p>
+    <p>-------------------------</p>
+    <h3>过滤器传参</h3>
+    <p>{{ money2 | moneyFormat2("美金") }}</p>
+</div>
+
+<script>
+    let app = new Vue( {
+        el: "#app",
+        data() {
+            return {money1: 23455, money2: '223.4556'}
+        },
+        // 定义局部过滤器
+        filters: {
+            moneyFormat(value) {
+                    return '$' + Number(value).toFixed(2)
+            },
+            moneyFormat2 (value, param) {
+                // console.log(value);
+                // console.log(param);
+                return '$' + Number(value).toFixed(2) + param
+                }
+        }
+    })
+</script>
+
+</body>
+</html>
