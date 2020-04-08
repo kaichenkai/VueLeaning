@@ -42,7 +42,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router, // 配置路由参数
+  router, // 配置路由参数 ES6写法
   components: { App },
   template: '<App/>'
 })

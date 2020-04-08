@@ -1,5 +1,9 @@
 <template>
-    <router-view></router-view>
+    <div>
+        <router-link :to="{name:'ShoppingCart'}">to test</router-link>
+        <router-view></router-view>
+    </div>
+
 <!--    <div id="app">-->
 <!--        <CustomDirective />-->
 <!--    </div>-->
