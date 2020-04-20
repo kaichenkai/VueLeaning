@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+   <nav id="appNav" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -17,10 +17,12 @@
 
 <script>
     export default {
-        name: "appnav"
+        name: "appNav"
     }
 </script>
 
 <style scoped>
-
+    #appNav {
+        /*float: left;*/
+    }
 </style>
