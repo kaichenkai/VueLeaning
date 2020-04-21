@@ -2,7 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 // import bootstrap from 'bootstrap'
-import "bootstrap"  // import 可以没有接收者
+import "jquery/dist/jquery.min"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.min"
 
 Vue.config.productionTip = false
 

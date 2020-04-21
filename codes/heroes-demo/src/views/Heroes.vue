@@ -5,12 +5,13 @@
         <!--bootstrap 响应式布局-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
+                <div class="col-lg-3 sidebar">
 <!--                    侧边栏-->
                     <appSlider />
                 </div>
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <list />
+                <div class="col-lg-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<!--                    <list />-->
+                    <router-view></router-view>
                 </div>
             </div>
         </div>
