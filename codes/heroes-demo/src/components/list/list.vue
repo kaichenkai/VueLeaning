@@ -25,7 +25,7 @@
                     <td>{{item.sex}}</td>
                     <td>{{item.age}}</td>
                     <td>
-                        <button>修改</button>
+                        <button @click="showEditVue(item)">修改</button>
                     </td>
                     <td>
                         <button @click="delHero(item.id)">删除</button>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-    import axios from "axios";
+    // import axios from "axios";
 
     export default {
         name: "list",
@@ -52,7 +52,7 @@
         },
         methods: {
             getData() {
-                axios.get("http://localhost:3000/heroes")
+                this.axios.get("/heroes")
                     .then((response) => {
                         const {status, data} = response;
                         if (status === 200) {
@@ -64,7 +64,7 @@
             },
             delHero(id) {
                 if (confirm("确定删除吗?")) {
-                    axios.delete("http://localhost:3000/heroes/" + id)
+                    this.axios.delete("/heroes/" + id)
                         .then((response) => {
                             const {status, data} = response;
                             if (status === 200) {
@@ -78,6 +78,10 @@
             },
             showAddVue() {
                 this.$router.push({name: "add"})
+            },
+            showEditVue(item) {
+                // 由路由 传递数据
+                this.$router.push({name: "edit", params: {id: item.id}})
             }
         }
     }
