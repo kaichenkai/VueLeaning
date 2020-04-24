@@ -15,29 +15,22 @@
 </template>
 
 <script>
-// import HelloWorld from '@/components/HelloWorld.vue'
 import topHead from '../components/common/topHead'
 import leftNav from '../components/common/leftNav'
-// import search from '../components/access/search'
-// import list from '../components/access/list'
-// import foo from '../components/access/foo'
 import "bootstrap"
 
 export default {
   name: 'Index',
   components: {
     topHead,
-    leftNav,
-    // search,
-    // list,
-    // foo
+    leftNav
   }
 }
 </script>
 
 <style scoped>
     /*#index, .container-fluid, .row {*/
-    #index, .container-fluid, .row{
+    #index, .container-fluid, .row, .container-left, .container-right{
         width: 100%;
         height: 100%;
     }

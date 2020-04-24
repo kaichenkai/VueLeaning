@@ -33,8 +33,8 @@
     }
     .left-nav ul li {
         width: 100%;
-        height: 40px;
-        line-height: 40px;
+        height: 46px;
+        line-height: 46px;
         text-align: center;
         background-color:  #e6e6e6;
     }
@@ -57,7 +57,7 @@
     .left-nav ul li a {
         display: inline-block;
         width: 120px;
-        font-size: 18px;
+        font-size: 23px;
         text-align: left;
         color: #0064C8;
         text-decoration: none;

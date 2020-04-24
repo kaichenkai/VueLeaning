@@ -6,9 +6,9 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>date</th>
-                    <th>total</th>
-                    <th>success</th>
+                    <th>日期</th>
+                    <th>接收</th>
+                    <th>已发布</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,17 +81,11 @@
     }
 
     .list .table thead {
-        overflow: auto;
     }
     .list .table thead th {
-        /*border-top: none;*/
     }
     .list .table tbody {
-        overflow: auto;
-        width: 100%;
-        /*background-color: skyblue;*/
     }
-
 
     .list .table tbody tr:last-child td{
         border-top: 1px solid #dee2e6;

@@ -1,15 +1,5 @@
 <template>
     <div class="foo">
-        <!--    <nav aria-label="Page navigation example">-->
-        <!--        <ul class="pagination">-->
-        <!--            <li class="page-item"><a class="page-link" href="#">«</a></li>-->
-        <!--            <li class="page-item"><a class="page-link" href="#">1</a></li>-->
-        <!--            <li class="page-item"><a class="page-link" href="#">2</a></li>-->
-        <!--            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-        <!--            <li class="page-item"><a class="page-link" href="#">»</a></li>-->
-        <!--        </ul>-->
-        <!--    </nav>-->
-
         <nav aria-label="Page navigation example">
             <ul class="content-left pagination">
                 <li class="page-item">
@@ -34,9 +24,7 @@
                 </form>
             </div>
         </nav>
-
     </div>
-
 </template>
 
 <script>
@@ -101,6 +89,7 @@
         font-size: 16px;
         font-weight: bolder;
         margin-left: 10px;
+        margin-right: 50px;
     }
     .foo nav .content-right form a:hover {
         text-decoration: none;

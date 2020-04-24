@@ -42,7 +42,7 @@
         /*    */
     }
     .search .query-btn {
-        outline: none !important;
+        /*outline: none !important;*/
         /*background-color: red;*/
     }
     .search .query-btn.active {
