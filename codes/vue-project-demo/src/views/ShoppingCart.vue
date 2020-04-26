@@ -40,7 +40,7 @@
             // 监听子组件增加一条数据
             this.$refs.add.$on("add", this.add);
             // 监听子组件搜索数据
-            this.$refs.search.$on("searchProduct", this.searchProduct);
+            this.$refs.dateSearch.$on("searchProduct", this.searchProduct);
             // 监听子组件删除数据
             // this.$refs.productList.$on("productList", this.deleteP)
         },

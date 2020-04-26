@@ -34,9 +34,18 @@
 </script>
 
 <style scoped>
+    .foo {
+        width: 100%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
     .foo nav {
         width: 100%;
         height: 78px;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .foo nav .content-left,
