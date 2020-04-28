@@ -108,7 +108,7 @@
             // 根据日期查询
             dateSearch(newStartDate) {
                 // this.getAccessStats({startDate=newStartDate});
-                this.getAccessStats(newStartDate, 1);
+                this.getAccessStats(newStartDate, this.currentPage);
             },
             // 页码改变
             changePage(newPage) {
