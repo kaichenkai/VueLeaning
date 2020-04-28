@@ -23,6 +23,7 @@
         height: 42px;
         line-height: 42px;
         margin-bottom: 20px;
+        color: #666666;
     }
 
     /*左边*/
@@ -52,8 +53,8 @@
 
     .search .search-left .query{
         margin-left: 9px;
-        background-color: #0064C8;
-        border: 1px solid #0064C8;
+        background-color: #6c757d;
+        border: 1px solid #6c757d;
     }
 
 

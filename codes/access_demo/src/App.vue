@@ -33,7 +33,7 @@
     }
 
     /*给按钮添加阴影效果*/
-    button:focus {
+    button:not(#toPage):focus {
         box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
     }
     input:focus {

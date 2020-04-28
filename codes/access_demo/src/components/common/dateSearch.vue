@@ -1,20 +1,33 @@
 <template>
-    <div class="search">
+    <div class="date-search">
         <div class="search-left">
-            <label><span>开始日期:</span><input class="date form-control" type="date"></label>
-            <label><input class="query btn btn-info" type="button" value="查询"></label>
+            <label><span>开始日期:</span><input v-model="startDate" class="date form-control" type="date"></label>
+            <label><input class="query btn btn-info" type="button" value="查询" @click="dateSearch(startDate)"></label>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "search"
+        name: "date-search",
+        data() {
+            return {
+                startDate: ""
+            }
+        },
+        methods: {
+            // 自定义事件日期查询
+            dateSearch(startDate) {
+                startDate = startDate.trim();
+                //
+                this.$emit("dateSearch", startDate)
+            }
+        }
     }
 </script>
 
 <style scoped>
-    .search {
+    .date-search {
         width: 100%;
         height: 42px;
         line-height: 42px;
@@ -22,11 +35,12 @@
     }
 
     /*左边*/
-    .search .search-left {
+    .date-search .search-left {
         float: left;
+        color: #666666;
     }
 
-    .search .search-left span {
+    .date-search .search-left span {
         display: inline-block;
         width: 85px;
         height: 42px;
@@ -35,21 +49,21 @@
         margin-left: 10px;
     }
 
-    .search .search-left label,
-    .search .search-right label {
+    .date-search .search-left label,
+    .date-search .search-right label {
         margin: 0;
     }
 
-    .search .date {
+    .date-search .date {
         display: inline-block;
         width: 180px;
         height: 37px;
     }
 
-    .search .search-left .query{
+    .date-search .search-left .query{
         margin-left: 9px;
-        background-color: #0064C8;
-        border: 1px solid #0064C8;
+        background-color: #6c757d;
+        border: 1px solid #6c757d;
     }
 
 

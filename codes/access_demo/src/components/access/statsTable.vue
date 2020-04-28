@@ -1,6 +1,6 @@
 <template>
     <div class="stats-table table-responsive">
-        <dateSearch/>
+        <date-search ref="search"/>
         <div class="title">
             <table class="table table-hover">
                 <colgroup>
@@ -14,7 +14,7 @@
                     <th>序号</th>
                     <th>日期</th>
                     <th>接收</th>
-                    <th>已发布</th>
+                    <th>已接入</th>
                 </tr>
                 </thead>
             </table>
@@ -28,74 +28,21 @@
                     <col/>
                 </colgroup>
                 <tbody>
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td>2020-04-21</td>-->
-<!--                    <td>100000</td>-->
-<!--                    <td>66666</td>-->
-<!--                </tr>-->
+                <tr v-for="(item, index) in accessStatsObj.statsList" :key="index">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.accessReceiveTotal }}</td>
+                    <td>{{ item.accessSuccessTotal }}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
 
         <!--暂无数据-->
-        <noData />
+        <noData v-if="isShow"/>
+
         <!--页脚-->
-        <foo/>
+        <foo ref="page" :currentPage="currentPage" :total="accessStatsObj.total" :totalPage="accessStatsObj.totalPage"/>
     </div>
 </template>
 
@@ -114,27 +61,61 @@
         data() {
             return {
                 currentPage: 1,
-                accessStats: {"stats_list": [], "total": 0, "total_page": 0}
+                accessStatsObj: {},
+                isShow: false
             }
         },
         mounted() {
-            this.getAccessStatsList()
+            this.getAccessStats();
+
+            // 监听子组件时间查询事件
+            this.$refs.search.$on("dateSearch", this.dateSearch);
+            // 监听子组件分页查询事件
+            this.$refs.page.$on("changePage", this.changePage)
         },
 
         methods: {
-            getAccessStatsList() {
-                this.axios.get("/api/access/stats?currentPage=1")
-                    .then((response) => {
-                        let {status, data} = response;
-                        if (status === 200) {
-                            // this.accessStatsList = data
-                            console.log(data);
-                        } else {
-                            console.log(status)
-                        }
-                    }).then((error) => {
-                        alert(error)
-                })
+            async getAccessStats(startDate="", currentPage=1) {
+                // 清除屏幕数据, 状态重置
+                this.accessStatsObj = {};
+                this.isShow = false;
+                //
+                let params = {};
+                if (startDate) {
+                    // 根据日期查询只有单页数据
+                    this.currentPage = 1;
+                    params = {startDate: startDate}
+                } else {
+                    params = {currentPage: currentPage};
+                }
+                const res = await this._services.getAccessStats(params);
+                let {code, data} = res;
+                // code 校验
+                if (parseInt(code, 10) !== 200) {
+                    // this.tools.message(res.message);
+                    return;
+                }
+                // data 校验
+                if (data.statsList.length === 0) {
+                    // console.log(data.statsList);
+                    this.isShow = true;
+                    return
+                }
+                //
+                this.accessStatsObj = data;
+            },
+
+            // 根据日期查询
+            dateSearch(newStartDate) {
+                // this.getAccessStats({startDate=newStartDate});
+                this.getAccessStats(newStartDate, 1);
+            },
+            // 页码改变
+            changePage(newPage) {
+                // 改变当前页
+                this.currentPage = newPage;
+                // 请求数据
+                this.getAccessStats("", newPage);
             }
         }
     }
@@ -147,6 +128,7 @@
 
         position: relative;
     }
+
     .stats-table div table {
         margin: 0;
     }
@@ -182,6 +164,7 @@
         border-top: none;
         /*background-color: red;*/
     }
+
     .stats-table div.scrollable tbody tr:last-child td {
         border-top: 1px solid #dee2e6;
         border-bottom: 1px solid #dee2e6;
