@@ -28,10 +28,10 @@
                     return;
                 }
                 startDate = startDate.trim();
+                //
+                this.$emit("dateSearch", startDate);
                 // 清空输入框
                 this.startDate = "";
-                //
-                this.$emit("dateSearch", startDate)
             },
             // 自定义事件日志内容查询
             contentSearch(content) {
@@ -40,10 +40,10 @@
                     return;
                 }
                 content = content.trim();
-                // 清空输入框
-                this.content = "";
                 //
                 this.$emit("contentSearch", content);
+                // 清空输入框
+                this.content = "";
             }
         }
     }

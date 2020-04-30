@@ -62,13 +62,13 @@
                 this.publishReceiveLine = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450);
                 this.publishSuccessLine = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450);
 
-                this.publishReceiveLine.addColorStop(0, 'rgba(250, 250, 210, 0.9)')
-                this.publishReceiveLine.addColorStop(0.5, 'rgba(250, 250, 210, 0.25)');
-                this.publishReceiveLine.addColorStop(1, 'rgba(250, 250, 210, 0)');
+                this.publishReceiveLine.addColorStop(0, 'rgba(0, 231, 255, 0.9)');
+                this.publishReceiveLine.addColorStop(0.5, 'rgba(0, 231, 255, 0.25)');
+                this.publishReceiveLine.addColorStop(1, 'rgba(0, 231, 255, 0)');
 
-                this.publishSuccessLine.addColorStop(0, 'rgba(60, 179, 113, 0.9)')
-                this.publishSuccessLine.addColorStop(0.5, 'rgba(60, 179, 113, 0.25)');
-                this.publishSuccessLine.addColorStop(1, 'rgba(60, 179, 113, 0)');
+                this.publishSuccessLine.addColorStop(0, 'rgba(0, 0, 255, 0.9)');
+                this.publishSuccessLine.addColorStop(0.5, 'rgba(0, 0, 255, 0.25)');
+                this.publishSuccessLine.addColorStop(1, 'rgba(0, 0, 255, 0)');
 
                 this.renderChart({
                     // labels: ['2020-04-16', '2020-04-17', '2020-04-18', '2020-04-19', '2020-04-20', '2020-04-21', '2020-04-22', '2020-04-23', '2020-04-24', '2020-04-25'],
@@ -76,7 +76,7 @@
                     datasets: [
                         {
                             label: 'publish-receive',
-                            borderColor: 'rgba(250, 250, 210)',
+                            borderColor: 'rgba(0, 231, 255)',
                             pointBackgroundColor: 'white',
                             borderWidth: 1,
                             pointBorderColor: 'white',
@@ -86,7 +86,7 @@
                         }, {
                             label: 'publish-success',
                             // backgroundColor: 'skyblue',
-                            borderColor: 'rgb(60,179,113)',
+                            borderColor: 'rgb(0, 0, 255)',
                             pointBackgroundColor: 'white',
                             pointBorderColor: 'white',
                             borderWidth: 1,

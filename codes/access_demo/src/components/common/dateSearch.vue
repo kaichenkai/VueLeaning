@@ -12,7 +12,7 @@
         name: "date-search",
         data() {
             return {
-                startDate: ""
+                startDate: this.moment(new Date()).format('YYYY-MM-DD')
             }
         },
         methods: {
@@ -25,6 +25,8 @@
                 startDate = startDate.trim();
                 //
                 this.$emit("dateSearch", startDate)
+                // 清空输入框
+                // this.startDate = "";
             }
         }
     }
