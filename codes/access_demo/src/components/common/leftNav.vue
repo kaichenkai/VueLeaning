@@ -30,8 +30,8 @@
     }
     .left-nav ul li {
         width: 100%;
-        height: 46px;
-        line-height: 46px;
+        height: 66px;
+        line-height: 66px;
         text-align: center;
         /*background-color:  #e6e6e6;*/
     }
@@ -49,7 +49,7 @@
     .left-nav ul li a {
         display: inline-block;
         width: 120px;
-        font-size: 23px;
+        font-size: 18px;
         text-align: left;
         color: #0064C8;
         text-decoration: none;
@@ -60,7 +60,7 @@
 
     /*调整字体图标*/
     .left-nav ul li .icon-uniE900 {
-        font-size: 18px;
+        font-size: 14px;
         margin: 0 5px;
         color: #0064C8;
     }

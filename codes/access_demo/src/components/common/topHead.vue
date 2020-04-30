@@ -27,7 +27,7 @@
 
         width: 100%;
         height: 66px;
-        background-color: #333333;
+        background-color: #373f41;
     }
 
     .top-head a {

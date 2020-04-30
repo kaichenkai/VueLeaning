@@ -46,7 +46,7 @@ export default {
 
     .container-left {
         padding: 20px 0;
-        background-color: #e6e6e6;
+        background-color: #333744;
     }
     .container-right {
         padding: 0 20px;
