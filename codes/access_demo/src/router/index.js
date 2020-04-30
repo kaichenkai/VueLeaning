@@ -15,7 +15,7 @@ const routes = [
                 path: '/access',
                 name: 'access',
                 component: () => import("../components/access/accessNav.vue"),
-                redirect: {name: "stats-table"},
+                redirect: {name: "stats-graph"},
                 children: [
                     {
                         path: '/access/stats/graph',
@@ -39,7 +39,7 @@ const routes = [
                 path: '/publish',
                 name: 'publish',
                 component: () => import("../components/publish/publishNav.vue"),
-                redirect: {name: "publish-table"},
+                redirect: {name: "publish-graph"},
                 children: [
                     {
                         path: '/publish/stats/graph',
