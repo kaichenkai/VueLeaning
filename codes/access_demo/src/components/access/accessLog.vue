@@ -16,11 +16,11 @@
                     <th class="sub-type">
                         <div class="btn-group">
                             <button ref="logType" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                False
+                                Failed
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(1)">True</a>
-                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-4)">False</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(1)">Success</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-4)">Failed</a>
                                 <!--                            <div class="dropdown-divider"></div>-->
                             </div>
                         </div>
@@ -54,7 +54,7 @@
         <noData v-if="isShow"/>
 
         <!--页脚-->
-        <foo ref="page" :currentPage="currentPage" :total="logsObj.total" :totalPage="logsObj.totalPage"/>
+        <foo ref="foo" :currentPage="currentPage" :total="logsObj.total" :totalPage="logsObj.totalPage"/>
     </div>
     <!--        <table class="table table-striped">-->
 </template>
@@ -87,7 +87,7 @@
             // 监听子组件内容查询事件
             this.$refs.search.$on("contentSearch", this.contentSearch);
             // 监听子组件分页查询事件
-            this.$refs.page.$on("changePage", this.changePage);
+            this.$refs.foo.$on("changePage", this.changePage);
         },
         methods: {
             async getLogList(startDate="", content="", currentPage=1) {
@@ -145,9 +145,9 @@
                 console.log(logType);
                 if (logType === 1) {
                     // console.log(this.$refs.logType.textContent);
-                    this.$refs.logType.textContent = "True";
+                    this.$refs.logType.textContent = "Success";
                 } else if (logType === -4) {
-                    this.$refs.logType.textContent = "False";
+                    this.$refs.logType.textContent = "Failed";
                 }
                 this.logType = logType;
                 // 重新请求数据

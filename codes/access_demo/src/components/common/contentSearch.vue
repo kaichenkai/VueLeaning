@@ -31,7 +31,7 @@
                 //
                 this.$emit("dateSearch", startDate);
                 // 清空输入框
-                this.startDate = "";
+                // this.startDate = "";
             },
             // 自定义事件日志内容查询
             contentSearch(content) {
@@ -43,7 +43,7 @@
                 //
                 this.$emit("contentSearch", content);
                 // 清空输入框
-                this.content = "";
+                // this.content = "";
             }
         }
     }

@@ -1,6 +1,6 @@
 <template>
     <div class="stats-log table-responsive">
-        <content-search />
+        <content-search ref="search" />
         <div class="title">
             <table class="table table-hover">
                 <colgroup>
@@ -16,11 +16,11 @@
                     <th class="sub-type">
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                False
+                                Failed
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">True</a>
-                                <a class="dropdown-item" href="#">False</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(2)">Success</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-5)">Failed</a>
                                 <!--                            <div class="dropdown-divider"></div>-->
                             </div>
                         </div>
@@ -40,494 +40,119 @@
                     <col />
                 </colgroup>
                 <tbody>
-                <tr>
-                    <td>12</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
+                <tr v-for="(item, index) in logsObj.logList" :key="index">
+                    <td>{{ index + 1}}</td>
+                    <td>{{ item.createTime }}</td>
+                    <td>{{ item.typeDescribe }}</td>
+                    <td>{{ item.content }}</td>
                 </tr>
-                                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>                <tr>
-                    <td>1</td>
-                    <td>2020-04-23 09:50:30</td>
-                    <td>True</td>
-                    <td>数据映射错误, 请联系系统管理员, error:[time data '2020-03-24 16:5sss7:30' does not match format '%Y-%m-%d
-                        %H:%M:%S']
-                    </td>
-                </tr>
-
-
                 </tbody>
             </table>
         </div>
+
+        <!--暂无数据-->
+        <noData v-if="isShow"/>
+
         <!--页脚-->
-        <foo/>
+        <foo ref="foo" :currentPage="currentPage" :total="logsObj.total" :totalPage="logsObj.totalPage" />
     </div>
     <!--        <table class="table table-striped">-->
 </template>
 
 <script>
     import contentSearch from "../common/contentSearch.vue"
+    import noData from "../common/noData.vue"
     import foo from "../common/foo.vue"
 
     export default {
         name: "accessLog",
         components: {
             contentSearch,
+            noData,
             foo
         },
         data() {
             return {
-                publishLog:[]
+                currentPage: 1,
+                logsObj: {},
+                isShow: false,
+                logType: -5   // 2 发布完成  -5 发布错误
+            }
+        },
+        mounted(){
+            this.getLogList();
+
+            // 监听子组件时间查询事件
+            this.$refs.search.$on("dateSearch", this.dateSearch);
+            // 监听子组件内容查询事件
+            this.$refs.search.$on("contentSearch", this.contentSearch);
+            // 监听子组件分页查询事件
+            this.$refs.foo.$on("changePage", this.changePage);
+        },
+
+        methods: {
+            async getLogList(startDate="", content="", currentPage=1) {
+                // 清除屏幕数据, 状态重置
+                this.logsObj = {};
+                this.isShow = false;
+                // 改变当前页
+                this.currentPage = currentPage;
+                //
+                let params = {};
+                if (startDate) {
+                    // 根据日期查询只查单页数据
+                    this.currentPage = currentPage; // 改变当前页
+                    params = {startDate: startDate, logType: this.logType}
+                } else if (content) {
+                    // 根据搜索内容查询
+                    this.currentPage = currentPage; // 改变当前页
+                    params = {content: content, logType: this.logType}
+                } else {
+                    params = {currentPage: currentPage, logType: this.logType};
+                }
+                const res = await this._services.getAccessLogs(params);
+                let {code, data} = res;
+                // code 校验
+                if (parseInt(code, 10) !== 200) {
+                    // this.tools.message(res.message);
+                    return;
+                }
+                // data 校验
+                if (data.logList.length === 0) {
+                    this.isShow = true;
+                }
+                //
+                this.logsObj = data;
+            },
+
+            // 根据日期查询
+            dateSearch(newStartDate) {
+                this.getLogList(newStartDate, "");
+            },
+
+            // 根据内容查询
+            contentSearch(content) {
+                this.getLogList("", content)
+            },
+
+            // 页码改变
+            changePage(newPage) {
+                // 请求数据
+                this.getLogList("", "", newPage);
+            },
+
+            // 日志类型改变
+            changeLogType(logType) {
+                console.log(logType);
+                if (logType === 1) {
+                    // console.log(this.$refs.logType.textContent);
+                    this.$refs.logType.textContent = "Success";
+                } else if (logType === -4) {
+                    this.$refs.logType.textContent = "Failed";
+                }
+                this.logType = logType;
+                // 重新请求数据
+                this.getLogList();
             }
         }
     }
