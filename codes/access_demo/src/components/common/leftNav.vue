@@ -39,11 +39,13 @@
     /*全局激活样式应用*/
     .left-nav ul li.router-link-active {
         background-color: #0064C8;
+        /*background-color: #409EFF;*/
     }
     .left-nav ul li.router-link-active a,
     .left-nav ul li.router-link-active .icon-uniE900{
         color: #ffffff;
         background-color: #0064C8;
+        /*background-color: #409EFF;*/
     }
 
     .left-nav ul li a {
@@ -51,7 +53,8 @@
         width: 120px;
         font-size: 18px;
         text-align: left;
-        color: #0064C8;
+        /*color: #0064C8;*/
+        color: #409EFF;
         text-decoration: none;
     }
     .left-nav ul li a:hover {
@@ -62,6 +65,7 @@
     .left-nav ul li .icon-uniE900 {
         font-size: 14px;
         margin: 0 5px;
-        color: #0064C8;
+        /*color: #0064C8;*/
+        color: #409EFF;
     }
 </style>

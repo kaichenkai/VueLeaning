@@ -12,7 +12,7 @@
         name: "date-search",
         data() {
             return {
-                startDate: this.moment(new Date()).format('YYYY-MM-DD')
+                startDate: ""
             }
         },
         methods: {
