@@ -36,11 +36,14 @@
 <script>
     export default {
         name: "foo",
-        props: {
-            total: {type: Number, required: true, default: 0},
-            totalPage: {type: Number, required: true, default: 0},
-            currentPage: {type: Number, required: true, default: 0}
-        },
+        // props: { // 点击次数快了报错
+        //     total: {type: Number, required: true},
+        //     totalPage: {type: Number, required: true},
+        //     currentPage: {type: Number, required: true}
+        // },
+        props: [
+            "total", "totalPage", "currentPage"
+        ],
         methods: {
             changePage(newPage) {
                 // string -> int
@@ -49,11 +52,16 @@
                     alert("请输入页码");
                     return
                 }
-                if (newPage < 1 || newPage > this.totalPage) {
-                    alert("页码超出上限");
-                    return
+                //
+                if (newPage < 1) {
+                    newPage = 1;
                 }
-                // console.log(newPage);
+                //
+                if (newPage > this.totalPage) {
+                    newPage = this.totalPage;
+                }
+                // 清除内容
+                this.$refs.currentPage.value = "";
                 // 通知父组件请求数据
                 this.$emit('changePage', newPage);
             }

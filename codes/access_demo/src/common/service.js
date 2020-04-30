@@ -14,4 +14,7 @@ export default {
     getAccessStats(params) {
         return request(urlHttps + '/access/stats', params,{method: "GET"});
     },
+    getAccessLogs(params) {
+        return request(urlHttps + '/access/logs', params,{method: "GET"});
+    },
 };

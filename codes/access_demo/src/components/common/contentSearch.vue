@@ -1,19 +1,51 @@
 <template>
     <div class="search">
         <div class="search-left">
-            <label><span>开始日期:</span><input class="date form-control" type="date"></label>
-            <label><input class="query btn btn-info" type="button" value="查询"></label>
+            <label><span>开始时间:</span><input v-model="startDate" class="date form-control" type="datetime-local"></label>
+            <label><input class="query btn btn-info" type="button" value="查询" @click="dateSearch(startDate)"></label>
         </div>
         <div class="search-right">
-            <label><span>搜索日志:</span><input class="content" type="text" placeholder="请输入内容"></label>
-            <a href="#"><img class="search-icon" src="../../assets/images/fd_icon.png" alt=""></a>
+            <label><span>搜索日志:</span><input @keyup.enter="contentSearch(content)" v-model="content" class="content" type="text" placeholder="请输入内容"></label>
+            <a href="#" @click.prevent="contentSearch(content)"><img class="search-icon" src="../../assets/images/fd_icon.png" alt=""></a>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "search"
+        name: "search",
+        data() {
+            return {
+                startDate: "",
+                content: ""
+            }
+        },
+        methods: {
+            // 自定义事件日期查询
+            dateSearch(startDate) {
+                if (!startDate.trim()) {
+                    alert("请选择开始时间");
+                    return;
+                }
+                startDate = startDate.trim();
+                // 清空输入框
+                this.startDate = "";
+                //
+                this.$emit("dateSearch", startDate)
+            },
+            // 自定义事件日志内容查询
+            contentSearch(content) {
+                if (!content.trim()) {
+                    alert("请输入搜索内容");
+                    return;
+                }
+                content = content.trim();
+                // 清空输入框
+                this.content = "";
+                //
+                this.$emit("contentSearch", content);
+            }
+        }
     }
 </script>
 
@@ -47,7 +79,7 @@
 
     .search .date {
         display: inline-block;
-        width: 180px;
+        width: 220px;
         height: 37px;
     }
 

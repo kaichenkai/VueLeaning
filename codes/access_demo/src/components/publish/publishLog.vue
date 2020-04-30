@@ -1,6 +1,6 @@
 <template>
     <div class="stats-log table-responsive">
-        <search/>
+        <content-search />
         <div class="title">
             <table class="table table-hover">
                 <colgroup>
@@ -516,13 +516,13 @@
 </template>
 
 <script>
-    import search from "../common/search.vue"
+    import contentSearch from "../common/contentSearch.vue"
     import foo from "../common/foo.vue"
 
     export default {
         name: "accessLog",
         components: {
-            search,
+            contentSearch,
             foo
         },
         data() {
@@ -546,6 +546,8 @@
     }
 
     .stats-log div.title .table th {
+        height: 50px;
+        padding: 0 12px;
         vertical-align: middle;
     }
 
@@ -613,10 +615,10 @@
         width: 12%;
     }
     colgroup col:nth-child(3) {
-        width: 8%;
+        width: 12%;
     }
     colgroup col:nth-child(4) {
-        width: 72%;
+        width: 68%;
     }
 
     /* 日志居中 */
