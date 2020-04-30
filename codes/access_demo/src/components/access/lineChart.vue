@@ -50,8 +50,6 @@
                     "successList": [],
                     "dateList": []
                 };
-
-                console.log(data.statsList);
                 //
                 let {receiveList, successList, dateList} = tempAccessStatsObj;
                 data.statsList.forEach((item) => {
@@ -59,8 +57,6 @@
                     successList.push(item.accessSuccessTotal);
                     dateList.push(item.date)
                 });
-
-                console.log(tempAccessStatsObj);
 
                 // 画图
                 this.accessReceiveLine = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450);

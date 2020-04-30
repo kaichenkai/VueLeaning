@@ -18,6 +18,10 @@
         methods: {
             // 自定义事件日期查询
             dateSearch(startDate) {
+                if (!startDate.trim()) {
+                    alert("请选择开始日期");
+                    return;
+                }
                 startDate = startDate.trim();
                 //
                 this.$emit("dateSearch", startDate)

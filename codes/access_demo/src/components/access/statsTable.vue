@@ -42,7 +42,7 @@
         <noData v-if="isShow"/>
 
         <!--页脚-->
-        <foo ref="page" :currentPage="currentPage" :total="accessStatsObj.total" :totalPage="accessStatsObj.totalPage"/>
+        <foo ref="foo" :currentPage="currentPage" :total="accessStatsObj.total" :totalPage="accessStatsObj.totalPage"/>
     </div>
 </template>
 
@@ -52,7 +52,7 @@
     import foo from "../common/foo.vue"
 
     export default {
-        name: "accessStats",
+        name: "accessTable",
         components: {
             dateSearch,
             noData,
@@ -71,7 +71,7 @@
             // 监听子组件时间查询事件
             this.$refs.search.$on("dateSearch", this.dateSearch);
             // 监听子组件分页查询事件
-            this.$refs.page.$on("changePage", this.changePage)
+            this.$refs.foo.$on("changePage", this.changePage)
         },
 
         methods: {

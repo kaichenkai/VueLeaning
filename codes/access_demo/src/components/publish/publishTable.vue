@@ -1,6 +1,6 @@
 <template>
     <div class="stats-table table-responsive">
-        <dateSearch/>
+        <dateSearch ref="search" />
         <!--        <table class="table table-striped">-->
         <div class="title">
             <table class="table table-hover">
@@ -29,84 +29,97 @@
                     <col/>
                 </colgroup>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2020-04-21</td>
-                    <td>100000</td>
-                    <td>66666</td>
+                <tr v-for="(item, index) in publishStatsObj.statsList" :key="index">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.publishReceiveTotal }}</td>
+                    <td>{{ item.publishSuccessTotal }}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
 
+        <!--暂无数据-->
+        <noData v-if="isShow"/>
+
         <!--页脚-->
-        <foo/>
+        <foo ref="foo" :currentPage="currentPage" :total="publishStatsObj.total" :totalPage="publishStatsObj.totalPage"/>
     </div>
 </template>
 
 <script>
     import dateSearch from "../common/dateSearch.vue"
+    import noData from "../common/noData.vue"
     import foo from "../common/foo.vue"
 
     export default {
-        name: "accessStats",
+        name: "publishTable",
         components: {
             dateSearch,
+            noData,
             foo
+        },
+        data() {
+            return {
+                currentPage: 1,
+                publishStatsObj: {},
+                isShow: false
+            }
+        },
+
+        mounted() {
+            this.getPublishStats();
+
+            // 监听子组件时间查询事件
+            this.$refs.search.$on("dateSearch", this.dateSearch);
+            // 监听子组件分页查询事件
+            this.$refs.foo.$on("changePage", this.changePage)
+        },
+
+        methods: {
+            async getPublishStats(startDate="", currentPage=1) {
+                // 清除屏幕数据, 状态重置
+                this.publishStatsObj = {};
+                this.isShow = false;
+                //
+                let params = {};
+                if (startDate) {
+                    // 根据日期查询只有单页数据
+                    this.currentPage = 1;
+                    params = {startDate: startDate}
+                } else {
+                    params = {currentPage: currentPage};
+                }
+                const res = await this._services.getAccessStats(params);
+                let {code, data} = res;
+                // code 校验
+                if (parseInt(code, 10) !== 200) {
+                    // this.tools.message(res.message);
+                    return;
+                }
+                // data 校验
+                if (data.statsList.length === 0) {
+                    // console.log(data.statsList);
+                    this.isShow = true;
+                    return
+                }
+                //
+                this.publishStatsObj = data;
+            },
+
+            // 根据日期查询
+            dateSearch(newStartDate) {
+                // this.getPublishStats({startDate=newStartDate});
+                this.getPublishStats(newStartDate, this.currentPage);
+            },
+
+            // 页码改变
+            changePage(newPage) {
+                // 改变当前页
+                this.currentPage = newPage;
+                // 请求数据
+                this.getPublishStats("", newPage);
+            }
         }
     }
 </script>
