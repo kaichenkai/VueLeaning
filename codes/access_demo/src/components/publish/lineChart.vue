@@ -22,9 +22,11 @@
                 let params = {};
                 if (startDate) {
                     params["startDate"] = startDate
-                } else if (!(pageSize === 0)) {
+                }
+                if (!(pageSize === 0)) {
                     params["pageSize"] = pageSize
                 }
+
                 const res = await this._services.getAccessStats(params);
                 let { code, data } = res;
                 // code 校验
@@ -105,10 +107,10 @@
 
         watch: {
             startDate(newStartDate) {
-                this.drawLine(newStartDate, 0);
+                this.drawLine(newStartDate, this.pageSize);
             },
             pageSize(newPageSize) {
-                this.drawLine("", newPageSize);
+                this.drawLine(this.startDate, newPageSize);
             }
         }
     }
