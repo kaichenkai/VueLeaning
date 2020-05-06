@@ -16,11 +16,11 @@
                     <th class="sub-type">
                         <div class="btn-group">
                             <button ref="logType" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Failed
+                                failed
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(1)">Success</a>
-                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-4)">Failed</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(1)">success</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-4)">failed</a>
                                 <!--                            <div class="dropdown-divider"></div>-->
                             </div>
                         </div>
@@ -145,9 +145,9 @@
                 console.log(logType);
                 if (logType === 1) {
                     // console.log(this.$refs.logType.textContent);
-                    this.$refs.logType.textContent = "Success";
+                    this.$refs.logType.textContent = "success";
                 } else if (logType === -4) {
-                    this.$refs.logType.textContent = "Failed";
+                    this.$refs.logType.textContent = "failed";
                 }
                 this.logType = logType;
                 // 重新请求数据

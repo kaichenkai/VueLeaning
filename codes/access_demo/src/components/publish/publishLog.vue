@@ -15,12 +15,12 @@
                     <th>日期</th>
                     <th class="sub-type">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Failed
+                            <button ref="logType" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                failed
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(2)">Success</a>
-                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-5)">Failed</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(2)">success</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-5)">failed</a>
                                 <!--                            <div class="dropdown-divider"></div>-->
                             </div>
                         </div>
@@ -144,11 +144,11 @@
             // 日志类型改变
             changeLogType(logType) {
                 console.log(logType);
-                if (logType === 1) {
+                if (logType === 2) {
                     // console.log(this.$refs.logType.textContent);
-                    this.$refs.logType.textContent = "Success";
-                } else if (logType === -4) {
-                    this.$refs.logType.textContent = "Failed";
+                    this.$refs.logType.textContent = "success";
+                } else if (logType === -5) {
+                    this.$refs.logType.textContent = "failed";
                 }
                 this.logType = logType;
                 // 重新请求数据

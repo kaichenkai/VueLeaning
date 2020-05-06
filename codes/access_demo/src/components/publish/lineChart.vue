@@ -5,7 +5,8 @@
         name: "lineChart",
         extends: Line,
         props: {
-            startDate: {type: String, required: false}
+            startDate: {type: String, required: false},
+            pageSize: {type: Number, required: false}
         },
         data() {
             return {
@@ -14,15 +15,15 @@
             }
         },
         mounted() {
-            this.drawLine();
+            this.drawLine(this.startDate, this.pageSize);
         },
          methods: {
-            async drawLine(startDate="") {
+            async drawLine(startDate="", pageSize=0) {
                 let params = {};
                 if (startDate) {
-                    params = {startDate: startDate}
-                } else {
-                    params = {currentDate: 1};
+                    params["startDate"] = startDate
+                } else if (!(pageSize === 0)) {
+                    params["pageSize"] = pageSize
                 }
                 const res = await this._services.getAccessStats(params);
                 let { code, data } = res;
@@ -104,7 +105,10 @@
 
         watch: {
             startDate(newStartDate) {
-                this.drawLine(newStartDate);
+                this.drawLine(newStartDate, 0);
+            },
+            pageSize(newPageSize) {
+                this.drawLine("", newPageSize);
             }
         }
     }
