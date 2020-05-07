@@ -2,7 +2,7 @@
     <div class="foo">
         <nav aria-label="Page navigation example">
             <ul class="content-left pagination">
-                <li class="page-item" :class="{disabled:currentPage===1}">
+                <li class="page-item" :class="{disabled:currentPage===1 || totalPage===0 }">
                     <a @click.prevent="changePage(currentPage - 1)" class="page-link" href="#" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -16,7 +16,7 @@
                                          v-show="afterOnePage <= totalPage">{{ afterOnePage }}</a></li>
 <!--                <li class="page-item"><a @click.prevent="changePage(afterTwoPage)" class="page-link" href="#"-->
 <!--                                         v-if="afterTwoPage <= totalPage">{{ afterTwoPage }}</a></li>-->
-                <li class="page-item" :class="{disabled:currentPage===totalPage}">
+                <li class="page-item" :class="{disabled:currentPage===totalPage || totalPage===0}">
                     <a  @click.prevent="changePage(currentPage + 1)" class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
