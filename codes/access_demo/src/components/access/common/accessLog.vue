@@ -19,8 +19,11 @@
                                 {{this.logTypeMap[String(logType)]}}
                             </button>
                             <div class="dropdown-menu">
+<!--                                <a class="dropdown-item" href="#" @click.prevent="changeLogType([-2, -3, -4])">推送错误</a>-->
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(1)">success</a>
-                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-4)">failed</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-2)">read failed</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-3)">down failed</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(-4)">write failed</a>
                                 <!--                            <div class="dropdown-divider"></div>-->
                             </div>
                         </div>
@@ -60,9 +63,9 @@
 </template>
 
 <script>
-    import contentSearch from "../common/contentSearch.vue"
-    import noData from "../common/noData.vue"
-    import foo from "../common/foo.vue"
+    import contentSearch from "../../common/contentSearch.vue"
+    import noData from "../../common/noData.vue"
+    import foo from "../../common/foo.vue"
 
     export default {
         name: "accessLog",
@@ -76,7 +79,7 @@
                 currentPage: 1,
                 logsObj: {},
                 isShow: false,
-                logType: -4,  // # 1 写入平台完成 -1缓存错误(mysql)  -2 读取错误 -3 下载错误 -4 写入平台错误
+                logType: 1,  // # 1 写入平台完成 -1缓存错误(mysql)  -2 读取错误 -3 下载错误 -4 写入平台错误
                 logTypeMap: {
                     "1": "success",
                     "2": "success",
@@ -151,13 +154,29 @@
 
             // 日志类型改变
             changeLogType(logType) {
-                // console.log(logType);
-                if (logType === 1) {
-                    // console.log(this.$refs.logType.textContent);
-                    this.$refs.logType.textContent = "success";
-                } else if (logType === -4) {
-                    this.$refs.logType.textContent = "failed";
+                switch (logType) {
+                    case 1: {
+                        this.$refs.logType.textContent = "success";
+                        break
+                    }
+                    case -2: {
+                        this.$refs.logType.textContent = "read failed";
+                        break
+                    }
+                    case -3: {
+                        this.$refs.logType.textContent = "down failed";
+                        break
+                    }
+                    case -4: {
+                        this.$refs.logType.textContent = "write failed";
+                        break
+                    }
+                    default: {
+                        this.$refs.logType.textContent = "success";
+                        break
+                    }
                 }
+                //
                 this.logType = logType;
                 // 重新请求数据
                 this.getLogList();

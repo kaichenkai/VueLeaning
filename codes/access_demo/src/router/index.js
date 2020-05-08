@@ -20,17 +20,19 @@ const routes = [
                     {
                         path: '/access/stats/graph',
                         name: 'stats-graph',
-                        component: () => import("../components/access/statsGraph.vue")
+                        component: () => import("../components/access/common/statsGraph.vue")
                     },
                     {
                         path: '/access/stats/table',
                         name: 'stats-table',
-                        component: () => import("../components/access/statsTable.vue")
+                        // component: () => import("../components/access/statsTable.vue")
+                        component: () => import("../components/access/common/statsTable.vue")
                     },
                     {
                         path: '/access/log',
                         name: 'stats-log',
-                        component: () => import("../components/access/accessLog.vue")
+                        // component: () => import("../components/access/accessLog.vue")
+                        component: () => import("../components/access/common/accessLog.vue")
                     }
                 ]
             },
