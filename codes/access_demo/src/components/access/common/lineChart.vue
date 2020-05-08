@@ -49,25 +49,18 @@
 
                 // 准备数据容器
                 let tempAccessStatsObj = {
-                    "receiveList": [],
-                    "successList": [],
+                    "writeSuccessList": [],
                     "dateList": []
                 };
                 //
-                let {receiveList, successList, dateList} = tempAccessStatsObj;
+                let {writeSuccessList, dateList} = tempAccessStatsObj;
                 data.statsList.forEach((item) => {
-                    receiveList.push(item.accessReceiveTotal);
-                    successList.push(item.accessSuccessTotal);
+                    writeSuccessList.push(item.writeSuccessTotal);
                     dateList.push(item.date)
                 });
 
                 // 画图
-                this.accessReceiveLine = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450);
                 this.accessSuccessLine = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450);
-
-                this.accessReceiveLine.addColorStop(0, 'rgba(250, 250, 210, 0.9)')
-                this.accessReceiveLine.addColorStop(0.5, 'rgba(250, 250, 210, 0.25)');
-                this.accessReceiveLine.addColorStop(1, 'rgba(250, 250, 210, 0)');
 
                 this.accessSuccessLine.addColorStop(0, 'rgba(60, 179, 113, 0.9)')
                 this.accessSuccessLine.addColorStop(0.5, 'rgba(60, 179, 113, 0.25)');
@@ -78,16 +71,7 @@
                     labels: tempAccessStatsObj.dateList,
                     datasets: [
                         {
-                            label: 'access-receive',
-                            borderColor: 'rgba(250, 250, 210)',
-                            pointBackgroundColor: 'white',
-                            borderWidth: 1,
-                            pointBorderColor: 'white',
-                            backgroundColor: this.accessReceiveLine,
-                            // data: [40, 39, 10, 40, 39, 400, 40, 200, 200, 200]
-                            data: tempAccessStatsObj.receiveList
-                        }, {
-                            label: 'access-success',
+                            label: 'write-success',
                             // backgroundColor: 'skyblue',
                             borderColor: 'rgb(60,179,113)',
                             pointBackgroundColor: 'white',
@@ -95,7 +79,7 @@
                             borderWidth: 1,
                             backgroundColor: this.accessSuccessLine,
                             // data: [60, 55, 32, 10, 2, 12, 53, 200, 300, 100]
-                            data: tempAccessStatsObj.successList
+                            data: tempAccessStatsObj.writeSuccessList
                         }
                     ]
                 }, {

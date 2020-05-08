@@ -35,12 +35,12 @@
                 <tr v-for="(item, index) in accessStatsObj.statsList" :key="index">
                     <td>{{ index + 1 }}</td>
                     <td>{{ item.date }}</td>
-                    <td>{{ item.readSuccess }}</td>
-                    <td>{{ item.readFailed }}</td>
-                    <td>{{ item.downSuccess }}</td>
-                    <td>{{ item.downFailed }}</td>
-                    <td>{{ item.writeSuccess }}</td>
-                    <td>{{ item.writeFailed }}</td>
+                    <td>{{ item.readSuccessTotal }}</td>
+                    <td>{{ item.readFailedTotal }}</td>
+                    <td>{{ item.downSuccessTotal }}</td>
+                    <td>{{ item.downFailedTotal }}</td>
+                    <td>{{ item.writeSuccessTotal }}</td>
+                    <td>{{ item.writeFailedTotal }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -104,7 +104,6 @@
                     return;
                 }
                 // data 校验
-                console.log(data.statsList);
                 if (data.statsList.length === 0) {
                     // console.log(data.statsList);
                     this.isShow = true;
