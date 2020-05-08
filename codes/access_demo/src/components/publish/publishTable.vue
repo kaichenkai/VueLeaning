@@ -101,7 +101,6 @@
                 if (data.statsList.length === 0) {
                     // console.log(data.statsList);
                     this.isShow = true;
-                    return
                 }
                 //
                 this.publishStatsObj = data;
