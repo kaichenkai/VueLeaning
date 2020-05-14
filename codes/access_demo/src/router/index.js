@@ -20,6 +20,7 @@ const routes = [
                     {
                         path: '/access/stats/graph',
                         name: 'stats-graph',
+                        // component: () => import("../components/access/statsGraph.vue")
                         component: () => import("../components/access/common/statsGraph.vue")
                     },
                     {

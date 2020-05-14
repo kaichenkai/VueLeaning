@@ -16,7 +16,7 @@
                     <th class="sub-type">
                         <div class="btn-group">
                             <button ref="logType" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{this.logTypeMap[String(logType)]}}
+                                failed
                             </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(1)">success</a>
@@ -76,16 +76,7 @@
                 currentPage: 1,
                 logsObj: {},
                 isShow: false,
-                logType: -4,  // # 1 写入平台完成 -1缓存错误(mysql)  -2 读取错误 -3 下载错误 -4 写入平台错误
-                logTypeMap: {
-                    "1": "success",
-                    "2": "success",
-                    "-1": "storage failed",
-                    "-2": "read failed",
-                    "-3": "down failed",
-                    "-4": "write failed",
-                    "-5": "failed"
-                }
+                logType: -4  // # 1 写入平台完成 -1缓存错误(mysql)  -2 读取错误 -3 下载错误 -4 写入平台错误
             }
         },
         mounted(){

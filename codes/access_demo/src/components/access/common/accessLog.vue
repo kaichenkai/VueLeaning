@@ -21,6 +21,7 @@
                             <div class="dropdown-menu">
 <!--                                <a class="dropdown-item" href="#" @click.prevent="changeLogType([-2, -3, -4])">推送错误</a>-->
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(1)">success</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(2)">repeated</a>
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(-2)">read failed</a>
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(-3)">down failed</a>
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(-4)">write failed</a>
@@ -157,6 +158,10 @@
                 switch (logType) {
                     case 1: {
                         this.$refs.logType.textContent = "success";
+                        break
+                    }
+                    case 2: {
+                        this.$refs.logType.textContent = "repeated";
                         break
                     }
                     case -2: {
