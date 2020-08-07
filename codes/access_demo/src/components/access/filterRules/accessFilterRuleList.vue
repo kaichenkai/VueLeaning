@@ -455,7 +455,7 @@
     /* div.title 处理滚动条*/
     .rule-list div.title {
         width: 100%;
-        padding-right: 17px;
+        padding-right: 7px;
     }
 
     /*滚动条*/
