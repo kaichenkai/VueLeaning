@@ -18,8 +18,8 @@
 
 <script>
     import lineChart from "./lineChart"
-    import dateSearch from "../common/dateSearch"
-    // import noData from "../common/noData"
+    import dateSearch from "../../common/dateSearch"
+    // import noData from "../statisticsCommon/noData"
 
     export default {
         name: "accessGraph",

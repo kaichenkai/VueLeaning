@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-// 引入 element-ui
-import ElementUI from "element-ui"
+// element-ui
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+Vue.use(ElementUI);
+
+// statisticsCommon CSS
+import "@/assets/css/base.css"
+
 // 引入 bootstrap
 import "jquery/dist/jquery"
 import "bootstrap/dist/css/bootstrap.css"

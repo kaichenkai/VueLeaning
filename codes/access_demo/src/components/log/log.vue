@@ -384,7 +384,7 @@
     .log div.title {
         /*width: calc(100% - 17px);*/
         width: 100%;
-        padding-right: 17px;
+        padding-right: 7px;
     }
 
     /*滚动条*/

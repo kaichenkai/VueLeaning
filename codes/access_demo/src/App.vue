@@ -16,21 +16,10 @@
         -moz-osx-font-smoothing: grayscale;
         /*text-align: center;*/
         color: #2c3e50;
-    }
-
-    html, body, #app {
         width: 100%;
         height: 100%;
     }
 
-    body {
-        /*通用样式*/
-        padding: 0;
-        margin: 0;
-        list-style: none;
-
-        box-sizing: border-box;
-    }
 
     /*给按钮添加阴影效果*/
     button:not(#toPage):focus {

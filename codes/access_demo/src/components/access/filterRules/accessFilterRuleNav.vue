@@ -1,11 +1,9 @@
 <template>
     <div class="accessNav clearfix">
         <h4 class="sub-header">
-            <router-link tag="a" :to="{name: 'access-graph'}">图形</router-link>
-            <span>/</span>
-            <router-link tag="a" :to="{name: 'access-table'}">表格</router-link>
-            <span>/</span>
-            <router-link tag="a" :to="{name: 'access-log'}">日志</router-link>
+            <router-link tag="a" :to="{name: 'rule-list'}">过滤规则列表</router-link>
+<!--            <span>/</span>-->
+<!--            <router-link tag="a" :to="{name: 'rule-add'}">添加</router-link>-->
         </h4>
         <!--视图出口-->
         <router-view />
@@ -14,7 +12,7 @@
 
 <script>
     export default {
-        name: "accessNav"
+        name: "accessFilterRuleNav"
     }
 </script>
 

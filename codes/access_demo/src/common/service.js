@@ -8,13 +8,18 @@
  */
 import { request } from './serviceBase';
 
-const urlHttps = window.location.origin;
+const urlHttp = window.location.origin;
 
 export default {
     getAccessStats(params) {
-        return request(urlHttps + '/access/stats', params,{method: "GET"});
+        return request(urlHttp + '/access/stats', params,{method: "GET"});
     },
     getAccessLogs(params) {
-        return request(urlHttps + '/access/logs', params,{method: "GET"});
+        return request(urlHttp + '/access/logs', params,{method: "GET"});
     },
+
+    //过滤规则请求
+    addFilterRule(params) {
+        return request(urlHttp + '/access/filter/rule', params, {method: "POST"})
+    }
 };

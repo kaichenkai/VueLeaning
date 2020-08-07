@@ -13,12 +13,8 @@
                 <tr>
                     <th>序号</th>
                     <th>日期</th>
-                    <th>读取成功</th>
-                    <th>读取失败</th>
-                    <th>下载成功</th>
-                    <th>下载失败</th>
-                    <th>推送成功</th>
-                    <th>推送失败</th>
+                    <th>接收</th>
+                    <th>已接入</th>
                 </tr>
                 </thead>
             </table>
@@ -35,12 +31,8 @@
                 <tr v-for="(item, index) in accessStatsObj.statsList" :key="index">
                     <td>{{ index + 1 }}</td>
                     <td>{{ item.date }}</td>
-                    <td>{{ item.readSuccessTotal }}</td>
-                    <td>{{ item.readFailedTotal }}</td>
-                    <td>{{ item.downSuccessTotal }}</td>
-                    <td>{{ item.downFailedTotal }}</td>
-                    <td>{{ item.writeSuccessTotal }}</td>
-                    <td>{{ item.writeFailedTotal }}</td>
+                    <td>{{ item.accessReceiveTotal }}</td>
+                    <td>{{ item.accessSuccessTotal }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -144,17 +136,10 @@
         vertical-align: middle;
     }
 
-    /*失败标题不同颜色区分*/
-    .stats-table div.title .table th:nth-child(4),
-    .stats-table div.title .table th:nth-child(6),
-    .stats-table div.title .table th:nth-child(8) {
-        color: #999999;
-    }
-
     /* div.title 处理滚动条*/
     .stats-table div.title {
         width: 100%;
-        padding-right: 17px;
+        padding-right: 7px;
     }
 
     /*滚动条*/
@@ -194,32 +179,22 @@
     }
 
     colgroup col:nth-child(3) {
-        width: 13%;
+        width: 41%;
     }
 
     colgroup col:nth-child(4) {
-        width: 13%;
+        width: 41%;
     }
 
-    colgroup col:nth-child(5) {
-        width: 13%;
-    }
-
-    colgroup col:nth-child(6) {
-        width: 13%;
-    }
-
-    colgroup col:nth-child(7) {
-        width: 13%;
-    }
-
-    colgroup col:nth-child(8) {
-        width: 13%;
-    }
-
-    /* 日志标题内容居中 */
-    .stats-table div.title thead tr th,
-    .stats-table div.scrollable tbody tr {
+    /* 日志居中 */
+    .stats-table div.title thead tr th:nth-child(1),
+    .stats-table div.title thead tr th:nth-child(2),
+    .stats-table div.title thead tr th:nth-child(3),
+    .stats-table div.title thead tr th:nth-child(4),
+    .stats-table div.scrollable tbody tr td:nth-child(1),
+    .stats-table div.scrollable tbody tr td:nth-child(2),
+    .stats-table div.scrollable tbody tr td:nth-child(3),
+    .stats-table div.scrollable tbody tr td:nth-child(4) {
         text-align: center;
     }
 </style>

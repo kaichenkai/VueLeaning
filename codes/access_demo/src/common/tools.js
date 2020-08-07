@@ -7,8 +7,8 @@
  *  ---- 2018/09/10 14:38 [lyuwei] 初次添加
  */
 import { Loading, Message, Notification, MessageBox } from 'element-ui';
-// import { carplateColorInfo, directionInfo, colorInfo, mistakeType, plateType, carKindType } from '@/common/dictionary.js';
-// import { configAjax } from '@/common/tsService.ts'
+// import { carplateColorInfo, directionInfo, colorInfo, mistakeType, plateType, carKindType } from '@/statisticsCommon/dictionary.js';
+// import { configAjax } from '@/statisticsCommon/tsService.ts'
 
 let globalLoading = null;
 

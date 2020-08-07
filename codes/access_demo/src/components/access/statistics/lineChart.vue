@@ -1,5 +1,5 @@
 <script>
-    import {Line} from 'vue-chartjs'
+    import {Line} from 'vue-chartjs/types'
 
     export default {
         name: "lineChart",

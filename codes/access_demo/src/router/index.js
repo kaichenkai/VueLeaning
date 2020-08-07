@@ -8,39 +8,62 @@ const routes = [
         path: '/',
         name: 'index',
         component: () => import('../views/Index.vue'),
-        redirect: {name: "access"},
+        redirect: {name: "access-stats"},
         children: [
-            // 数据接入
+            //接入统计
             {
-                path: '/access',
-                name: 'access',
+                path: '/access/stats',
+                name: 'access-stats',
                 component: () => import("../components/access/accessNav.vue"),
-                redirect: {name: "stats-graph"},
+                redirect: {name: "access-graph"},
                 children: [
                     {
                         path: '/access/stats/graph',
-                        name: 'stats-graph',
+                        name: 'access-graph',
                         // component: () => import("../components/access/statsGraph.vue")
-                        component: () => import("../components/access/common/statsGraph.vue")
+                        component: () => import("../components/access/statisticsCommon/statsGraph.vue")
                     },
                     {
                         path: '/access/stats/table',
-                        name: 'stats-table',
+                        name: 'access-table',
                         // component: () => import("../components/access/statsTable.vue")
-                        component: () => import("../components/access/common/statsTable.vue")
+                        component: () => import("../components/access/statisticsCommon/statsTable.vue")
                     },
+
+                    //接入日志
                     {
                         path: '/access/log',
-                        name: 'stats-log',
-                        // component: () => import("../components/access/accessLog.vue")
-                        component: () => import("../components/access/common/accessLog.vue")
+                        name: 'access-log',
+                        // component: () => import("../components/access/accessFilterRuleList.vue")
+                        component: () => import("../components/access/statisticsCommon/accessLog.vue")
                     }
                 ]
             },
-            // 数据发布
+
+            //接入过滤规则
             {
-                path: '/publish',
-                name: 'publish',
+                path: '/access/filter/rule',
+                name: 'access-filter-rule',
+                component: () => import("../components/access/filterRules/accessFilterRuleNav.vue"),
+                redirect: {name: "rule-list"},
+                children: [
+                    {
+                        path: '/filter/rule/list',
+                        name: 'rule-list',
+                        component: () => import("../components/access/filterRules/accessFilterRuleList.vue")
+                    },
+                    {
+                        path: '/filter/rule/add',
+                        name: 'rule-add',
+                        component: () => import("../components/access/filterRules/accessFilterRuleList.vue")
+                    }
+                ]
+            },
+
+            //发布统计
+            {
+                path: '/publish/stats',
+                name: 'publish-stats',
                 component: () => import("../components/publish/publishNav.vue"),
                 redirect: {name: "publish-graph"},
                 children: [
@@ -61,12 +84,6 @@ const routes = [
                     }
                 ]
             },
-            // 日志
-            {
-                path: '/log',
-                name: 'accessLog',
-                component: () => import("../components/log/log.vue")
-            }
         ]
     }
 ];

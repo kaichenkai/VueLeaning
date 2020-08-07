@@ -60,9 +60,9 @@
 </template>
 
 <script>
-    import contentSearch from "../common/contentSearch.vue"
-    import noData from "../common/noData.vue"
-    import foo from "../common/foo.vue"
+    import contentSearch from "../../common/contentSearch.vue"
+    import noData from "../../common/noData.vue"
+    import foo from "../../common/foo.vue"
 
     export default {
         name: "accessLog",
@@ -209,7 +209,7 @@
     /* div.title 处理滚动条*/
     .stats-log div.title {
         width: 100%;
-        padding-right: 17px;
+        padding-right: 7px;
     }
 
     /*滚动条*/
