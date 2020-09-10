@@ -21,7 +21,7 @@
                             <div class="dropdown-menu">
 <!--                                <a class="dropdown-item" href="#" @click.prevent="changeLogType([-2, -3, -4])">推送错误</a>-->
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(1)">success</a>
-                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(2)">repeated</a>
+                                <a class="dropdown-item" href="#" @click.prevent="changeLogType(3)">repeated</a>
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(-2)">read failed</a>
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(-3)">down failed</a>
                                 <a class="dropdown-item" href="#" @click.prevent="changeLogType(-4)">write failed</a>
@@ -80,10 +80,11 @@
                 currentPage: 1,
                 logsObj: {},
                 isShow: false,
-                logType: 1,  // # 1 写入平台完成 -1缓存错误(mysql)  -2 读取错误 -3 下载错误 -4 写入平台错误
+                logType: 1,  // # 1 写入平台完成  2 发布完成  3 接入重复  -1缓存错误(mysql)  -2 读取错误 -3 下载错误 -4 写入平台错误  -5 发布错误
                 logTypeMap: {
                     "1": "success",
                     "2": "success",
+                    "3": "repeated",
                     "-1": "storage failed",
                     "-2": "read failed",
                     "-3": "down failed",
@@ -160,7 +161,7 @@
                         this.$refs.logType.textContent = "success";
                         break
                     }
-                    case 2: {
+                    case 3: {
                         this.$refs.logType.textContent = "repeated";
                         break
                     }

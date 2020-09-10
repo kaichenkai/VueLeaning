@@ -20,13 +20,13 @@ const routes = [
                     {
                         path: '/access/stats/graph',
                         name: 'access-graph',
-                        // component: () => import("../components/access/statsGraph.vue")
+                        // component: () => import("../components/access/statistics/statsGraph.vue")
                         component: () => import("../components/access/statisticsCommon/statsGraph.vue")
                     },
                     {
                         path: '/access/stats/table',
                         name: 'access-table',
-                        // component: () => import("../components/access/statsTable.vue")
+                        // component: () => import("../components/access/statistics/statsTable.vue")
                         component: () => import("../components/access/statisticsCommon/statsTable.vue")
                     },
 
@@ -34,7 +34,7 @@ const routes = [
                     {
                         path: '/access/log',
                         name: 'access-log',
-                        // component: () => import("../components/access/accessFilterRuleList.vue")
+                        // component: () => import("../components/access/statistics/accessLog.vue")
                         component: () => import("../components/access/statisticsCommon/accessLog.vue")
                     }
                 ]
@@ -84,6 +84,8 @@ const routes = [
                     }
                 ]
             },
+
+            //发布规则
         ]
     }
 ];

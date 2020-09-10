@@ -433,7 +433,7 @@
         .el-dialog {
             .el-form {
                 .form-item {
-                    width: 560px;
+                    width: 92%;
                 }
             }
         }

@@ -1,93 +1,83 @@
 <template>
     <div class="left-nav">
-        <!--            <router-link tag="li" :to="{name: 'access'}">-->
-        <!--                <span class="icon-uniE900"></span><a>数据接入</a>-->
-        <!--            </router-link>-->
-        <!--            <router-link tag="li" :to="{name: 'publish'}">-->
-        <!--                <span class="icon-uniE900"></span><a>数据发布</a>-->
-        <!--            </router-link>-->
-        <!--                <div class="toggle-button" @click="togleCollapse">|||</div>-->
-        <!--                background-color="#212733"-->
+        <el-menu
+                class="main-menu"
+                :unique-opened="true"
+                :default-active="activePath"
+                :collapse="isCollapse"
+                background-color="#333744"
+                text-color="#fff"
+                active-text-color="#0064C8">
+            <!-- :unique-opened="true"->只允许展开一个菜单 -->
+            <!-- :collapse-transition="false" -> 关闭动画 -->
+            <!-- router -> 导航开启路由模式 -->
+            <!-- 一级菜单  -->
+            <el-submenu index="/access" class="first-menu">
+                <template slot="title">
+                    <i class="el-icon-s-promotion first-title" style="padding-right: 10px"></i>
+                    <span class="first-title">数据接入</span>
+                </template>
 
-                <el-menu
-                        class="main-menu"
-                        :unique-opened="false"
-                        :default-active="activePath"
-                        :collapse="isCollapse"
+                <!-- 二级菜单 -->
+                <el-menu-item index="/access/stats/graph" class="second-menu">
+                    <template slot="title">
+                        <router-link tag="li" :to="{name: 'access-stats'}">
+                            <i class="el-icon-s-data second-title" style="padding-right: 5px"></i>
+                            <span class="second-title">统计</span>
+                        </router-link>
+                    </template>
+                </el-menu-item>
+                <!--                <el-menu-item index="1-2" class="second-menu">-->
+                <!--                    <template slot="title">-->
+                <!--                        <router-link tag="li" :to="{name: 'access-filter-rule'}">-->
+                <!--                            <i class="el-icon-edit second-title" style="padding-right: 5px"></i>-->
+                <!--                            <span class="second-title">过滤</span>-->
+                <!--                        </router-link>-->
+                <!--                    </template>-->
+                <!--                </el-menu-item>-->
+                <el-menu-item index="/access/log" class="second-menu">
+                    <template slot="title">
+                        <router-link tag="li" :to="{name: 'access-log'}">
+                            <i class="el-icon-document second-title" style="padding-right: 5px"></i>
+                            <span class="second-title">日志</span>
+                        </router-link>
+                    </template>
+                </el-menu-item>
+            </el-submenu>
 
-                        background-color="#333744"
-                        text-color="#fff"
-                        active-text-color="#0064C8">
-                    <!-- :unique-opened="true"->只允许展开一个菜单 -->
-                    <!-- :collapse-transition="false" -> 关闭动画 -->
-                    <!-- router -> 导航开启路由模式 -->
-                    <!-- 一级菜单  -->
-                    <el-submenu index="1" class="first-menu">
-                        <template slot="title">
-                            <i class="el-icon-s-promotion first-title" style="padding-right: 10px"></i>
-                            <a class="first-title">数据接入</a>
-                        </template>
-
-                        <!-- 二级菜单 -->
-                        <el-menu-item index="1-1" class="second-menu">
-                            <template slot="title">
-                                <router-link tag="li" :to="{name: 'access-stats'}">
-                                    <i class="el-icon-s-data second-title" style="padding-right: 5px"></i>
-                                    <span class="second-title">统计</span>
-                                </router-link>
-                            </template>
-                        </el-menu-item>
-                        <el-menu-item index="1-2" class="second-menu">
-                            <template slot="title">
-                                <router-link tag="li" :to="{name: 'access-filter-rule'}">
-                                    <i class="el-icon-edit second-title" style="padding-right: 5px"></i>
-                                    <span class="second-title">过滤</span>
-                                </router-link>
-                            </template>
-                        </el-menu-item>
-                        <el-menu-item index="1-3" class="second-menu">
-                            <template slot="title">
-                                <router-link tag="li" :to="{name: 'access-log'}">
-                                    <i class="el-icon-document second-title" style="padding-right: 5px"></i>
-                                    <span class="second-title">日志</span>
-                                </router-link>
-                            </template>
-                        </el-menu-item>
-                    </el-submenu>
-
-                    <el-submenu index="2" class="first-menu">
-                        <template slot="title">
-                            <i class="el-icon-share first-title" style="padding-right: 10px"></i>
-                            <span class="first-title">数据发布</span>
-                        </template>
-                        <!-- 二级菜单 -->
-                        <!--                        @click="saveNavState('/' + subItem.path)"-->
-                        <el-menu-item index="2-1" class="second-menu">
-                            <template slot="title">
-                                <router-link tag="li" :to="{name: 'publish-stats'}">
-                                    <i class="el-icon-s-data second-title" style="padding-right: 5px"></i>
-                                    <span class="second-title">统计</span>
-                                </router-link>
-                            </template>
-                        </el-menu-item>
-                        <el-menu-item index="2-2" class="second-menu">
-                            <template slot="title">
-                                <router-link tag="li" to="">
-                                    <i class="el-icon-edit second-title" style="padding-right: 5px"></i>
-                                    <span class="second-title">过滤</span>
-                                </router-link>
-                            </template>
-                        </el-menu-item>
-                        <el-menu-item index="2-3" class="second-menu">
-                            <template slot="title">
-                                <router-link tag="li" :to="{name: 'publish-log'}">
-                                    <i class="el-icon-document second-title" style="padding-right: 5px"></i>
-                                    <span class="second-title">日志</span>
-                                </router-link>
-                            </template>
-                        </el-menu-item>
-                    </el-submenu>
-                </el-menu>
+            <el-submenu index="/publish" class="first-menu">
+                <template slot="title">
+                    <i class="el-icon-share first-title" style="padding-right: 10px"></i>
+                    <span class="first-title">数据发布</span>
+                </template>
+                <!-- 二级菜单 -->
+                <!--                        @click="saveNavState('/' + subItem.path)"-->
+                <el-menu-item index="/publish/stats/graph" class="second-menu">
+                    <template slot="title">
+                        <router-link tag="li" :to="{name: 'publish-stats'}">
+                            <i class="el-icon-s-data second-title" style="padding-right: 5px"></i>
+                            <span class="second-title">统计</span>
+                        </router-link>
+                    </template>
+                </el-menu-item>
+                <!--                <el-menu-item index="2-2" class="second-menu">-->
+                <!--                    <template slot="title">-->
+                <!--                        <router-link tag="li" to="">-->
+                <!--                            <i class="el-icon-edit second-title" style="padding-right: 5px"></i>-->
+                <!--                            <span class="second-title">过滤</span>-->
+                <!--                        </router-link>-->
+                <!--                    </template>-->
+                <!--                </el-menu-item>-->
+                <el-menu-item index="/publish/log" class="second-menu">
+                    <template slot="title">
+                        <router-link tag="li" :to="{name: 'publish-log'}">
+                            <i class="el-icon-document second-title" style="padding-right: 5px"></i>
+                            <span class="second-title">日志</span>
+                        </router-link>
+                    </template>
+                </el-menu-item>
+            </el-submenu>
+        </el-menu>
     </div>
 </template>
 
@@ -99,8 +89,13 @@
                 //默认不折叠
                 isCollapse: false,
                 //被激活导航地址
-                activePath: '1-1'
+                activePath: '/access/stats/graph'
             }
+        },
+
+        mounted() {
+            const currentActivePath = this.$route.path;
+            this.activePath = currentActivePath
         }
     }
 </script>
@@ -114,7 +109,7 @@
             height: 100%;
             padding: 0;
             text-align: center;
-            border: 1px solid #333744;/*对齐效果*/
+            border: 1px solid #333744; /*对齐效果*/
 
             .first-menu {
 
